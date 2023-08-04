@@ -8,15 +8,20 @@
   </head>
 
   <body>
+    <h1>Etch-a-Sketch</h1>
     <div class = "container"></div>
     <div class = 'btn'>
       <div class = "colorMode">
-        <button id = "original">original</button>
-        <button id = 'rainbow'>rainbow</button>
+        <button id = "original">GREY</button>
+        <button id = 'rainbow'>COLOR</button>
+      </div>
+      <div class="middle">
+        <input type="range" min="1" max="32" value="5" class="slider" id="myRange">
+        <div id = "sliderText">5 x 5</div>
       </div>
       <div class = "drawMode">
-        <button id = "drag">drag</button>
-        <button id = "hover">hover</button>
+        <button id = "drag">DRAG</button>
+        <button id = "hover">HOVER</button>
       </div>
     </div>
   </body>
