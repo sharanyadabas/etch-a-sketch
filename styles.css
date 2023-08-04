@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    height: 400px;
+    width: 400px;
+    margin: auto;
+}
+
+.btn {
+    display: flex;
+    width: 400px;
+    margin: 20px auto;
+    justify-content: space-between;
+}
+
+button {
+    width: 70px;
+    height: 70px;
+    border-radius: 70%;
+}
+
+#original, #drag {
+    margin-right: 12px;
+}
+
+.row {
+    display: flex;
+    flex:auto;
+}
+
+.row div {
+    border: 1px solid black;
+    flex:auto
+}
+
+.whiteout {
+    background-color: white;
+}
+
+.hover1 {
+    background-color: rgba(80, 80, 80, 0.3);
+}
+
+.hover2 {
+    background-color: rgba(80, 80, 80, 0.4);
+}
+
+.hover3 {
+    background-color: rgba(80, 80, 80, 0.6);
+}
+
+.hover4 {
+    background-color: rgba(80, 80, 80, 0.8);
+}
+
+.hover5 {
+    background-color: rgba(80, 80, 80, 1)
+}
+
