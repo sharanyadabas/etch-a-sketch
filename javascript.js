@@ -1,7 +1,8 @@
 const container = document.querySelector('.container')
 const gridSize = 10
 let colorMode = 'original'
-let drawMode = 'drag'
+let drawMode = 'hover'
+let clicked = false;
 
 const originalBTN = document.querySelector('#original')
 const rainbowBTN = document.querySelector('#rainbow')
@@ -28,7 +29,6 @@ hoverBTN.onclick = () => {
     reset()
 }
 function reset() {
-    clicked = false
     console.log(`${colorMode} and ${drawMode}`)
     grid.forEach((pixel) => {
         pixel.classList.remove('colored', 'hover1', 'hover2', 'hover3', 'hover4', 'hover5')
@@ -51,43 +51,57 @@ for (let i = 0; i < gridSize; i++) {
     }
 }
 
-let clicked = false;
 const grid = document.querySelectorAll('.box')
 
 if (drawMode === 'drag') {
     grid.forEach((pixel) => {
         pixel.addEventListener('mousedown', () => clicked = true)
-        pixel.addEventListener('mousemove', hover);
+        pixel.addEventListener('mousemove', dragged);
         pixel.addEventListener('mouseup', () => clicked = false)
     })
 }
-else if (drawMode === 'hover') {
+
+if (drawMode === 'hover') {
     grid.forEach((pixel) => pixel.addEventListener('mouseover', hover))
 }
 
 function hover() {
-    if ((drawMode === 'hover' || (drawMode === 'drag' && clicked)) && colorMode === 'original') {
-        if (this.classList.contains('hover1')) {
-            this.classList.remove('hover1')
-            this.classList.add('hover2')
-        } else if (this.classList.contains('hover2')) {
-            this.classList.remove('hover2')
-            this.classList.add('hover3')
-        } else if (this.classList.contains('hover3')) {
-            this.classList.remove('hover3')
-            this.classList.add('hover4')
-        } else if (this.classList.contains('hover4')) {
-            this.classList.remove('hover4')
-            this.classList.add('hover5')
-        } else {
-            this.classList.add('hover1')
-        }
+    if (colorMode === 'original')
+        colorOriginal(this)
+    else if (colorMode === 'rainbow')
+        colorRainbow(this)
+}
+
+function dragged() {
+    if (clicked && colorMode === 'original')
+        colorOriginal(this)
+    else if (clicked && colorMode === 'rainbow')
+        colorRainbow(this)
+}
+
+function colorOriginal(obj) {
+    console.log("color")
+    if (obj.classList.contains('hover1')) {
+        obj.classList.remove('hover1')
+        obj.classList.add('hover2')
+    } else if (obj.classList.contains('hover2')) {
+        obj.classList.remove('hover2')
+        obj.classList.add('hover3')
+    } else if (obj.classList.contains('hover3')) {
+        obj.classList.remove('hover3')
+        obj.classList.add('hover4')
+    } else if (obj.classList.contains('hover4')) {
+        obj.classList.remove('hover4')
+        obj.classList.add('hover5')
+    } else {
+        obj.classList.add('hover1')
     }
-    else if ((drawMode === 'hover' || (drawMode === 'drag' && clicked)) && colorMode === 'rainbow') {
-        if (!this.classList.contains('colored')) {
-            this.style.background = randomColor()
-            this.classList.add('colored')
-        }
+}
+
+function colorRainbow(obj) {
+    if (!obj.classList.contains('colored')) {
+        obj.style.background = randomColor()
+        obj.classList.add('colored')
     }
 }
 
