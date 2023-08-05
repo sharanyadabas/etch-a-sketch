@@ -60,11 +60,15 @@ h1 {
     border: 2px solid rgba(129, 65, 0, 0.8);
 }
 
+.slider:hover {
+    scale: 105%;
+}
+
 button {
     width: 75px;
     height: 75px;
     border-radius: 70%;
-    transition: rotate 1.2s;
+    transition: all 1.2s;
     border: 2px solid rgba(129, 65, 0, 0.8);
     color: rgba(129, 65, 0, 0.8);
     background-color: white;
@@ -80,10 +84,12 @@ button {
 
 #original:hover, #rainbow:hover {
     rotate: 360deg;
+    transform: scale(1.2);
 }
 
 #drag:hover, #hover:hover {
     rotate: -360deg;
+    transform: scale(1.2);
 }
 
 #original, #drag {
