@@ -104,22 +104,29 @@ button {
 }
 
 .hover1 {
-    background-color: rgba(80, 80, 80, 0.3);
+    background-color: rgba(80, 80, 80, 0.1);
 }
 
 .hover2 {
-    background-color: rgba(80, 80, 80, 0.4);
+    background-color: rgba(80, 80, 80, 0.25);
 }
 
 .hover3 {
-    background-color: rgba(80, 80, 80, 0.6);
+    background-color: rgba(80, 80, 80, 0.4);
 }
 
 .hover4 {
-    background-color: rgba(80, 80, 80, 0.8);
+    background-color: rgba(80, 80, 80, 0.55);
 }
 
 .hover5 {
-    background-color: rgba(80, 80, 80, 1)
+    background-color: rgba(80, 80, 80, 0.7)
 }
 
+.hover6 {
+    background-color: rgba(80, 80, 80, 0.85)
+}
+
+.hover7 {
+    background-color: rgba(80, 80, 80, 1)
+}

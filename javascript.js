@@ -9,6 +9,7 @@ const slider = document.querySelector('#myRange')
 const sliderText = document.querySelector('#sliderText')
 
 sliderText.textContent = `${slider.value} x ${slider.value}`
+
 slider.oninput = () => {
     sliderText.textContent = `${slider.value} x ${slider.value}`
     removeGrid()
@@ -82,7 +83,7 @@ function removeGrid() {
 function reset() {
     clicked = false
     grid.forEach((pixel) => {
-        pixel.classList.remove('colored', 'hover1', 'hover2', 'hover3', 'hover4', 'hover5')
+        pixel.classList.remove('colored', 'hover1', 'hover2', 'hover3', 'hover4', 'hover5', 'hover6', 'hover7')
         pixel.style = ""
     })
 }
@@ -91,9 +92,9 @@ function draw() {
     grid = document.querySelectorAll('.box')
     grid.forEach((pixel) => {
         if (drawMode === 'drag') {
-            pixel.addEventListener('mousedown', () => clicked = true)
+            container.addEventListener('mousedown', () => clicked = true)
             pixel.addEventListener('mousemove', dragged)
-            pixel.addEventListener('mouseup', () => clicked = false)
+            container.addEventListener('mouseup', () => clicked = false)
         }
         if (drawMode === 'hover')
             pixel.addEventListener('mouseover', hover)
@@ -133,7 +134,14 @@ function colorOriginal(obj) {
     } else if (obj.classList.contains('hover4')) {
         obj.classList.remove('hover4')
         obj.classList.add('hover5')
-    } else {
+    } else if (obj.classList.contains('hover5')) {
+            obj.classList.remove('hover5')
+            obj.classList.add('hover6')
+    } else if (obj.classList.contains('hover6')) {
+        obj.classList.remove('hover6')
+        obj.classList.add('hover7')
+    }
+    else {
         obj.classList.add('hover1')
     }
 }
