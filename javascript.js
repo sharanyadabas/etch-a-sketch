@@ -1,5 +1,5 @@
 const container = document.querySelector('.container')
-let gridSize = 10
+let gridSize = 15
 let colorMode = ''
 let drawMode = ''
 let clicked = false
