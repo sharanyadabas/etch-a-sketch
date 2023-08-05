@@ -92,9 +92,12 @@ function draw() {
     grid = document.querySelectorAll('.box')
     grid.forEach((pixel) => {
         if (drawMode === 'drag') {
-            container.addEventListener('mousedown', () => clicked = true)
-            pixel.addEventListener('mousemove', dragged)
+            container.addEventListener('mousedown', (e) => {
+                clicked = true
+                e.preventDefault()
+            })
             container.addEventListener('mouseup', () => clicked = false)
+            pixel.addEventListener('mousemove', dragged)
         }
         if (drawMode === 'hover')
             pixel.addEventListener('mouseover', hover)
@@ -135,8 +138,8 @@ function colorOriginal(obj) {
         obj.classList.remove('hover4')
         obj.classList.add('hover5')
     } else if (obj.classList.contains('hover5')) {
-            obj.classList.remove('hover5')
-            obj.classList.add('hover6')
+        obj.classList.remove('hover5')
+        obj.classList.add('hover6')
     } else if (obj.classList.contains('hover6')) {
         obj.classList.remove('hover6')
         obj.classList.add('hover7')
